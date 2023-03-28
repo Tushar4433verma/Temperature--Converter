@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width, initial-scale=1.0" />
+    <title>Temperature Converter</title>
+
+    <style>
+
+        body{
+            background-color: black;
+        }
+        h1:hover{
+
+            color: yellowgreen;
+            border-bottom:2px solid yellowgreen; 
+        }
+        h1{
+            text-align: center;
+            padding-top: 30px;
+            color: yellow;
+        }
+        #span-1:hover{
+            color:yellowgreen;
+        }
+        #span-1{
+            font-weight: bold;
+            font-size: 27px;
+            color: yellow;
+            border: 2px solid yellow;
+           
+        }
+        #c-to-f{
+
+            color: white;
+            font-size: x-large;
+            margin:30px;
+        }
+        #formula{
+            margin:40px 10px;
+        }
+        #container:hover{
+            background-color: aliceblue;
+        }
+        #container{
+            text-align: center;
+            background-color:#fff;
+            padding: 100px;
+        }
+        .input{
+            display: inline-block;
+            padding:100px 10px;
+        }
+        .label{
+            font-size: x-large;
+            font-style: italic;
+            font-weight: bold;
+            color: black
+        }
+
+        .input-tag:hover{
+            background-color:aliceblue;
+        }
+        .input-tag{
+
+            text-align: center;
+            font-size: large;
+            font-weight: bold;
+            width:103px;
+        }
+
+    </style>
+  </head>
+
+  <body>
+    <h1>Temperature Converter</h1>
+
+    <div id="container">
+      <div class="input">
+        <label class="label">Celsius <br>
+             <input type="number" id="cel" class="input-tag" value="0">
+        </label>
+      </div>
+
+      <div class="input">
+        <label class="label">Fahrenheit <br>
+            <input type="number" id="fah" class="input-tag" value="32">
+         </label>
+      </div>
+    </div>
+
+    <div id="formula">
+        <span id="span-1">Formula:</span>
+        <span id="c-to-f">(0°C × 9/5) + 32 = 32F</span>
+
+    </div>
+    
+
+    <!-- JS code starts -->
+    <script>
+        var cel = document.getElementById("cel");
+        var fah = document.getElementById("fah");
+
+        cel.addEventListener('input',function(){
+
+             let c = this.value;
+             let f = (c * 9/5) + 32;
+
+             if(!Number.isInteger(f))
+                 f=f.toFixed(4);
+
+             fah.value = f;
+        });
+        fah.addEventListener('input',function(){
+    
+           let f = this.value;
+           let c = (f - 32) * 5/9;
+    
+           if(!Number.isInteger(c))
+               c=c.toFixed(4);
+
+           cel.value = c;
+        });
+
+    </script>
+
+    
+     
+    
+   
+  </body>
+</html>
